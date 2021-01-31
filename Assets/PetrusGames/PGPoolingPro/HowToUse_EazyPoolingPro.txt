@@ -1,0 +1,39 @@
+
+How to use Guide.
+-----------------
+
+1. After installing the package you will find in the prefab folder the prefab PGPoolingManager drag this into your main scene this object is a singleton.
+
+2. In the PGPoolingManager object you have the folowing options .
+
+	- Objects in pool :
+
+		this is for viewing the total objects in pool when in editor mode.
+	
+	- Prefabs to pool :
+
+		Here you put the prefabs you want to preload in the pool.
+
+	- Number of instances for each prefab :
+
+		the total preload amount of instances you want for your prefab (this number counts for each prefab)
+
+	- Activate :
+
+		Use this if you want your prefab instances to be activated on preload.
+
+3. In your Prefab that you want to pool add the folowing script :
+
+	- PGPoolingProName.
+
+	Add a unique name for each prefab.
+
+
+4. In your instancer object's script add this line's of code to get the pooled object.
+
+
+	using PetrusGames.PGPoolingPro;
+
+	PoolingManager.PoolingManagerInstance.GetPooledObject(prefab) where prefab is the gameobject that you added in the editor.
+
+	This is showed in the PGPoolingProDemoObjectSpawnerScript you find in the Scripts folder.
