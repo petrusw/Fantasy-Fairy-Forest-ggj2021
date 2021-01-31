@@ -124,6 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Object: {fileID: 630859840147653070, guid: df66ea8439db36946b8982d17924dfa2, type: 3}
+  m_Explotion: {fileID: 100000, guid: baeca5d1e61428a45a10238cb8f19ff7, type: 3}
+  m_explotion2: {fileID: 1280141305896002, guid: aec1949ba373e8e418af00c45958c04c,
+    type: 3}
 --- !u!114 &1573331810172333689
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossShoot : MonoBehaviour
 {
@@ -22,7 +23,9 @@ public class BossShoot : MonoBehaviour
                 m_HitEffect.SetActive(true);
             }
             catch { }
+            StartCoroutine("EndGame");
             gameObject.SetActive(false);
+           
         }
 
         m_Timer += Time.deltaTime;
@@ -31,6 +34,12 @@ public class BossShoot : MonoBehaviour
             Shoot();
             m_Timer = 0;
         }
+    }
+
+    private IEnumerator EndGame()
+    {
+        yield return new WaitForSeconds(15f);
+        SceneManager.LoadScene("StartScene");
     }
     private void ActivateLittleBoss()
     {
@@ -47,7 +56,8 @@ public class BossShoot : MonoBehaviour
         {
             m_Health -= m_HitPoints;
             m_SoundHit.GetComponent<AudioSource>().Play();
-            Instantiate(m_HitEffect, transform);
+            Instantiate(m_HitEffect, collision.transform);
+            
             collision.gameObject.SetActive(false);
         }
     }
